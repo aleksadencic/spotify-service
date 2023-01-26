@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index.css" />
+  </head>
+  <body class="container">
+    <header><%- include('../partials/header'); %></header>
+
+    <main>
+      <div class="jumbotron">
+        <h1><%= homeParameters.title %></h1>
+        <table>
+          <tr>
+            <% for (var i = 0; i < routes.columns.length; i++) { %>
+            <th><%= routes.columns[i] %></th>
+            <% } %>
+          </tr>
+          <% for (var i = 0; i < routes.configurations.length; i++) { %>
+          <tr>
+            <td><b><%= routes.configurations[i].name %></b></td>
+            <td><%= routes.configurations[i].method %></td>
+            <td><%= routes.configurations[i].path %></td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+    </main>
+
+    <footer><%- include('../partials/footer'); %></footer>
+  </body>
+</html>
