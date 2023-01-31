@@ -6,6 +6,15 @@ const router = express.Router();
 const spotifyApi = new SpotifyWebApi();
 spotifyApi.setAccessToken(spotifyData.access_token);
 
+/**
+ * @swagger
+ * /spotify-api/user:
+ *   get:
+ *     description: Get user infos
+ *     responses:
+ *       200:
+ *         description: success
+ */
 router.get("/user", async (req, res, next) => {
   try {
     res.json(await spotifyApi.getMe());
@@ -16,12 +25,12 @@ router.get("/user", async (req, res, next) => {
 
 /**
  * @swagger
- * /new-releases:
+ * /spotify-api/new-releases:
  *   get:
  *     description: Get new releases
  *     responses:
- *       201:
- *         description: Completed
+ *       200:
+ *         description: success
  */
 router.get("/new-releases", async (req, res, next) => {
   try {
@@ -31,6 +40,15 @@ router.get("/new-releases", async (req, res, next) => {
   }
 });
 
+/**
+ * @swagger
+ * /spotify-api/allbums:
+ *   get:
+ *     description: Get albums
+ *     responses:
+ *       200:
+ *         description: success
+ */
 router.get("/albums", async (req, res, next) => {
   try {
     res.json(await spotifyApi.getMySavedAlbums());
@@ -39,6 +57,15 @@ router.get("/albums", async (req, res, next) => {
   }
 });
 
+/**
+ * @swagger
+ * /spotify-api/recently-played-tracks:
+ *   get:
+ *     description: Get recently played tracks
+ *     responses:
+ *       200:
+ *         description: success
+ */
 router.get("/recently-played-tracks", async (req, res, next) => {
   try {
     res.json(await spotifyApi.getMyRecentlyPlayedTracks());
