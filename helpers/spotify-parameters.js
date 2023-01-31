@@ -1,6 +1,3 @@
-exports.token =
-  "BQCEUjHM5QB1exzNpWe1O5KXPBd86V6Amb22_ihlfjPzCuz4SaPlacuhJbbIxNNEpYYFJKpq6U3S6XzCU2OJoKzh0M3Y9_UR-bvzc4-SI4IXaFgoYW6oaRoUgGbjONMC1hgaW0tjfyXSV7PUaI_pORfVt4RAUMnzVMwlDhQD8D70pHWlnSIdZQKN4u5mSb0IWKGrSN_SplzIB0pwVNoBjwaXtUlXah8KTylx-ObSS_Ex_X5LQUiB8TqeLuk64ryyjgfbr36HeKQbGuqRV1GqcIuWDzKaBj4IMagFexMPf7X29QX3kf3oMC_2NptHYIckri8vp6LR3G5YnQ4PM97JrA";
-
 exports.spotifyClientParams = {
   spotifyClintId: "16edcc23833d4a3aa1b566ec2f88097e",
   spotifyClintSecret: "0694472d1ef44a1ab5067970c5673ce6",

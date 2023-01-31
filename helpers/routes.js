@@ -4,22 +4,34 @@ exports.routesConfiguration = {
     {
       name: "User Info",
       method: "GET",
-      path: "http://localhost:3000/spotify-api/user",
+      path: {
+        name: "/spotify-api/user",
+        url: "http://localhost:3000/spotify-api/user",
+      },
     },
     {
       name: "New Releases",
       method: "GET",
-      path: "http://localhost:3000/spotify-api/new-releases",
+      path: {
+        name: "/spotify-api/new-releases",
+        url: "http://localhost:3000/spotify-api/new-releases",
+      },
     },
     {
       name: "Albums",
       method: "GET",
-      path: "http://localhost:3000/spotify-api/albums",
+      path: {
+        name: "/spotify-api/albums",
+        url: "http://localhost:3000/spotify-api/albums",
+      },
     },
     {
       name: "Recently played tracks",
       method: "GET",
-      path: "http://localhost:3000/spotify-api/recently-played-tracks",
+      path: {
+        name: "/spotify-api/recently-played-tracks",
+        url: "http://localhost:3000/spotify-api/recently-played-tracks",
+      },
     },
   ],
 };

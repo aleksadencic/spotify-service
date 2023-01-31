@@ -7,6 +7,7 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var aboutRouter = require("./routes/about");
 var spotifyRouter = require("./routes/spotify");
+var swaggerRouter = require("./routes/swagger");
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/about", aboutRouter);
 app.use("/spotify-api", spotifyRouter);
+app.use("/swagger", swaggerRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

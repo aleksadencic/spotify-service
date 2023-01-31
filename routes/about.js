@@ -6,7 +6,6 @@ const {
 } = require("../helpers/parameters");
 var router = express.Router();
 
-/* GET about page */
 router.get("/", (req, res, next) => {
   res.render("pages/about", {
     mainParameters,

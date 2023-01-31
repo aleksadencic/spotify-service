@@ -7,7 +7,6 @@ const {
 const { routesConfiguration } = require("../helpers/routes");
 var router = express.Router();
 
-/* GET home page */
 router.get("/", (req, res, next) => {
   res.render("pages/index", {
     mainParameters,

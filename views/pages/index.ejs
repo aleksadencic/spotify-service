@@ -20,7 +20,11 @@
           <tr>
             <td><b><%= routes.configurations[i].name %></b></td>
             <td><%= routes.configurations[i].method %></td>
-            <td><%= routes.configurations[i].path %></td>
+            <td>
+              <a href="<%= routes.configurations[i].path.url %>" target="_blank"
+                ><%= routes.configurations[i].path.name %></a
+              >
+            </td>
           </tr>
           <% } %>
         </table>

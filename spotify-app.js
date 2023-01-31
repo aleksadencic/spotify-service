@@ -1,8 +1,9 @@
 var SpotifyWebApi = require("spotify-web-api-node");
-const express = require("express");
-const { spotifyClientParams } = require("./helpers/spotify-parameters");
+var express = require("express");
+var { spotifyClientParams } = require("./helpers/spotify-parameters");
+var fs = require("fs");
 
-const scopes = [
+var scopes = [
   "ugc-image-upload",
   "user-read-playback-state",
   "user-modify-playback-state",
@@ -30,7 +31,7 @@ var spotifyApi = new SpotifyWebApi({
   redirectUri: spotifyClientParams.spotifyRedirectUri,
 });
 
-const app = express();
+var app = express();
 
 app.get("/login", (req, res) => {
   res.redirect(spotifyApi.createAuthorizeURL(scopes));
@@ -57,25 +58,28 @@ app.get("/callback", (req, res) => {
       spotifyApi.setAccessToken(access_token);
       spotifyApi.setRefreshToken(refresh_token);
 
-      console.log("access_token:", access_token);
-      console.log("refresh_token:", refresh_token);
+      var spotidyData = {
+        access_token: access_token,
+        refresh_tokne: refresh_token,
+        expires_in: expires_in,
+      };
 
-      console.log(
-        `Sucessfully retreived access token. Expires in ${expires_in} s.`
+      fs.writeFile(
+        "helpers/spotify-token.json",
+        JSON.stringify(spotidyData),
+        (err) => {
+          if (err) console.log(err);
+        }
       );
-      res.send("Success! You can now close the window.");
+      res.send("Successfull login! You can now close the window.");
 
       setInterval(async () => {
         const data = await spotifyApi.refreshAccessToken();
         const access_token = data.body["access_token"];
-
-        console.log("The access token has been refreshed!");
-        console.log("access_token:", access_token);
         spotifyApi.setAccessToken(access_token);
       }, (expires_in / 2) * 1000);
     })
     .catch((error) => {
-      console.error("Error getting Tokens:", error);
       res.send(`Error getting Tokens: ${error}`);
     });
 });
