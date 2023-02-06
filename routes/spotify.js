@@ -74,4 +74,12 @@ router.get("/recently-played-tracks", async (req, res, next) => {
   }
 });
 
+router.get("/album-tacks/:id/tracks", async (req, res, next) => {
+  try {
+    res.json(await spotifyApi.getAlbumTracks(Number(req.params.id)));
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 module.exports = router;

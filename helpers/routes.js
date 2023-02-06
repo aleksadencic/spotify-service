@@ -26,6 +26,14 @@ exports.routesConfiguration = {
       },
     },
     {
+      name: "Album Tracks",
+      method: "GET",
+      path: {
+        name: "/spotify-api/album-tacks/id",
+        url: "http://localhost:3000/spotify-api/album-tracks/1/tracks",
+      },
+    },
+    {
       name: "Recently played tracks",
       method: "GET",
       path: {
